@@ -1,13 +1,10 @@
 <?php
 
-
 class RegexReplaceTest extends PHPUnit_Framework_TestCase
 {
     public function testRegexReplace()
     {
         $rr = new RegexReplace();
-
-
         $str = "Hello {name,fallback=Customer}, this is a message sent to {email}, we'll be in touch in writing at {address,fallback=Your Postal Address}";
 
         $data1 = array(
