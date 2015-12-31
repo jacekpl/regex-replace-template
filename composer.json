@@ -1,0 +1,19 @@
+{
+    "name": "jacekpl/regex",
+    "description": "",
+    "license": "MIT",
+    "autoload": {
+	    "psr-4": {
+            "": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jacek Różański",
+            "email": "jacek@opcode.pl"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^5.1"
+    }
+}
