@@ -56,5 +56,22 @@ class RegexReplace
 
         return $string;
     }
-}
 
+    public function variables($string)
+    {
+        preg_match_all('/{.*?}/', $string, $ret);
+
+        $variablesArray = [];
+
+        foreach($ret as $variables) {
+            foreach($variables as $variable) {
+                $variableStripped = str_replace(array('{', '}'), '', $variable);
+                $variableData = explode(',', $variableStripped);
+
+                $variablesArray[] = ['variable' => $variableData[0], 'fallback' => isset($variableData[1]) ? isset($variableData[1]) ? str_replace('fallback=', '', $variableData[1]) : null : null];
+            }
+        }
+
+        return $variablesArray;
+    }
+}

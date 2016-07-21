@@ -25,4 +25,18 @@ class RegexReplaceTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result1, $rr->execute($str, $data1));
         $this->assertEquals($result2, $rr->execute($str, $data2));
     }
+
+    public function testGetVariables()
+    {
+        $rr = new RegexReplace();
+        $str = $str = "Hello {name,fallback=Customer}, this is a message sent to {email}, we'll be in touch in writing at {address,fallback=Your Postal Address}";
+
+        $result = [
+            ['variable' => 'name', 'fallback' => 'Customer'],
+            ['variable' => 'email', 'fallback' => null],
+            ['variable' => 'address', 'fallback' => 'Your Postal Address'],
+        ];
+
+        $this->assertEquals($result, $rr->variables($str));
+    }
 }
